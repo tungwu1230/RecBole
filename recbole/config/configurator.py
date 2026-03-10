@@ -625,11 +625,12 @@ class Config(object):
     def compatibility_settings(self):
         import numpy as np
 
-        np.bool = np.bool_
-        np.int = np.int_
-        np.float = np.float_
-        np.complex = np.complex_
-        np.object = np.object_
-        np.str = np.str_
-        np.long = np.int_
-        np.unicode = np.unicode_
+        if np.lib.NumpyVersion(np.__version__) < "2.0.0":
+            np.bool = np.bool_
+            np.int = np.int_
+            np.float = np.float_
+            np.complex = np.complex_
+            np.object = np.object_
+            np.str = np.str_
+            np.long = np.int_
+            np.unicode = np.unicode_

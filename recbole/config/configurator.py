@@ -625,7 +625,7 @@ class Config(object):
     def compatibility_settings(self):
         import numpy as np
 
-        if np.lib.NumpyVersion(np.__version__) < "2.0.0":
+        if int(np.__version__.split(".")[0]) < 2:
             np.bool = np.bool_
             np.int = np.int_
             np.float = np.float_

@@ -422,7 +422,8 @@ class MCCLK(KnowledgeRecommender):
                 )
             )
         )
-        A.update(data_dict)
+        for (row, col), val in data_dict.items():
+            A[row, col] = val
         # norm adj matrix
         if mode == "bi":
             L = _bi_norm_lap(A)

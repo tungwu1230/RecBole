@@ -107,7 +107,8 @@ class NGCF(GeneralRecommender):
                 )
             )
         )
-        A.update(data_dict)
+        for (row, col), val in data_dict.items():
+            A[row, col] = val
         # norm adj matrix
         sumArr = (A > 0).sum(axis=1)
         diag = (
